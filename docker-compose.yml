@@ -1,7 +1,7 @@
 services:
   postgres:
     image: postgres:15
-    container_name: ${DB_HOST}
+    container_name: postgres
     environment:
       POSTGRES_USER: ${DB_USERNAME}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
@@ -13,9 +13,17 @@ services:
 
   adminer:
     image: adminer
+    container_name: adminer
     restart: always
     ports:
       - "127.0.0.1:8080:8080"
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - '5672:5672'
+      - '15672:15672'
 
 volumes:
   postgres_data:

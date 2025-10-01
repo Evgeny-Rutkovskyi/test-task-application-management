@@ -3,6 +3,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import dbConfig from './common/config/db.config';
 import { StatementModule } from './modules/statement/statement.module';
 import { ConfigModule } from '@nestjs/config';
+import { RabbitMqModule } from './modules/rabbit-mq/rabbit-mq.module';
+import { WorkerModule } from './modules/worker/worker.module';
 
 @Module({
   imports: [
@@ -16,7 +18,7 @@ import { ConfigModule } from '@nestjs/config';
         ...dbConfig(),
         autoLoadEntities: true,
       }),
-    }), StatementModule],
+    }), StatementModule, RabbitMqModule, WorkerModule],
   controllers: [],
   providers: [],
 })
