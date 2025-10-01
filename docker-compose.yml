@@ -1,0 +1,22 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: ${DB_HOST}
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "127.0.0.1:8080:8080"
+
+volumes:
+  postgres_data:
+  
