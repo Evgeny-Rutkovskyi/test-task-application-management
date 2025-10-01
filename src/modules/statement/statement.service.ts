@@ -3,9 +3,9 @@ import { CreateStatementDto } from './dto/create-statement.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Statement } from './entity/statement.entity';
 import { Repository } from 'typeorm';
-import { StatementStatus } from 'src/common/lib/constants/statement-status.enum';
+import { StatementStatus } from '../../common/lib/constants/statement-status.enum';
 import { RabbitMqService } from '../rabbit-mq/rabbit-mq.service';
-import { Statement_WORKFLOW } from 'src/common/lib/constants/statement-workflow';
+import { Statement_WORKFLOW } from '../../common/lib/constants/statement-workflow';
 
 @Injectable()
 export class StatementService {

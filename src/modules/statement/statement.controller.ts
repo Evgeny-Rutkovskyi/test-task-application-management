@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Post, UsePipes } from '@nestjs/common';
 import { StatementService } from './statement.service';
 import { CreateStatementDto, createStatementSchema } from './dto/create-statement.dto';
-import { ZodValidationPipe } from 'src/common/pipes/zod-validation.pipe';
+import { ZodValidationPipe } from '../../common/pipes/zod-validation.pipe';
 
 @Controller('requests')
 export class StatementController {
